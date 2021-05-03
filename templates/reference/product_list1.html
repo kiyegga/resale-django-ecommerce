@@ -1,0 +1,8 @@
+<h1>our product page</h1>
+
+{% for product in product_list%}
+<!-- products in url is from namespace in main url, and products contain 
+name product_list in product sub urls, product.slug contain in product_list, 
+then include app_name which is also product -->
+ <h2><a href="{% url 'products:product_detail' product.slug %}">{{product.name}}</a></h2>
+{% endfor %}

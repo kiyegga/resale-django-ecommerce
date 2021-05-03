@@ -1,0 +1,23 @@
+item:-
+    -title
+    -date & time
+    -Ad ID
+    -state
+    -image
+    -price
+    -condition
+    -item Type- category
+    -Brand name
+    -view count
+    -description
+owner:-
+    -city
+    -phone number
+
+feedback and contact
+
+functions:-
+      -register & login -forget pass
+      -post Ad 
+      -filter
+      -search  
