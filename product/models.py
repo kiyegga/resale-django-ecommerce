@@ -30,7 +30,6 @@ class Product(models.Model):
         if not self.slug and self.name:
             self.slug = slugify(self.name)
         super(Product, self).save(*args, **kwargs)
-    
 
     def __str__(self):
         return self.name
@@ -55,6 +54,13 @@ class ProductImages(models.Model):
 class Category(models.Model):
     categoryName = models.CharField(max_length=150)
     image = models.ImageField(upload_to='category/', blank=True, null=True)
+    category_slug = models.SlugField(blank=True, null=True)
+
+    # creating slug in database by overriding the save method
+    def save(self, *args, **kwargs):
+        if not self.slug and self.categoryName:
+            self.slug = slugify(self.categoryName)
+        super(Category, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.categoryName
