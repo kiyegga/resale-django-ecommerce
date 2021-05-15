@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
 {% block body %}
 	 <section>
 			<div id="page-wrapper" class="sign-in-wrapper">
@@ -13,39 +13,22 @@
 								<span class="checkbox1">
 									 <label class="checkbox"><input type="checkbox" name="checkbox" checked="">Forgot Password ?</label>
 								</span>
-								<p><a href="#">Click Here</a> </p>
+								<p><a href="{% url 'registration/password_reset_form.html' %}">Click Here</a> </p>
 								<div class="clearfix"> </div>
 							</div>
-							<form method ="POST">
-							{% comment %} <div class="log-input">
-								<div class="log-input-left">
-								   <input type="text" class="user" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}"/>
-								</div>
-								<span class="checkbox2">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
-								</span>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="log-input">
-								<div class="log-input-left">
-								   <input type="password" class="lock" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email address:';}"/>
-								</div>
-								<span class="checkbox2">
-									 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i></label>
-								</span>
-								<div class="clearfix"> </div>
-							</div> {% endcomment %}
-								{% csrf_token %}
-								{{ form }}
-							
-							<input type="submit" value="Log in">
-						</form>	 
+						<form method="POST" class="form">
+							{% csrf_token %}
+							{% bootstrap_form form %}
+							{% buttons %}
+								<input type="submit" class="btn btn-primary" value="Log in">
+							{% endbuttons %}
+						</form> 
 						</div>
 						<div class="new_people">
 							<h2>For New People</h2>
 							<p>Having hands on experience in creating innovative designs,I do offer design 
 								solutions which harness.</p>
-							<a href="register.html">Register Now!</a>
+							<a href="{% url 'registration/signup.html' %}">Register Now!</a>
 						</div>
 					</div>
 				</div>

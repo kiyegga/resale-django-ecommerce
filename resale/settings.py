@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'product',   
+    'product',  
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 
 LOGIN_REDIRECT_URL = '/'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = 'sent_emails'
